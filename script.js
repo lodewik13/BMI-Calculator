@@ -34,21 +34,34 @@ document.getElementById('bmi-form').addEventListener('submit', function (event) 
 
         let idealWeightMin = (18.5 * heightInMeters * heightInMeters).toFixed(2);
         let idealWeightMax = (24.9 * heightInMeters * heightInMeters).toFixed(2);
+        let idealWeightAvg = ((parseFloat(idealWeightMin) + parseFloat(idealWeightMax)) / 2).toFixed(2);
 
-        result += ` <span >Your ideal weight range is between 
-        <span style="font-weight: bold; color: ${textColor};">${idealWeightMin}</span> kg and <span style="font-weight: bold; color: ${textColor};">${idealWeightMax} </span> kg.</span>`;
+        result += `<span>The average ideal weight is 
+        <span style="font-weight: bold; text-decoration: underline; color: ${textColor};">${idealWeightAvg}</span> kg.</span>
+        <span>Your ideal weight range is between 
+        <span style="font-weight: bold; color: ${textColor};">${idealWeightMin}</span> kg and 
+        <span style="font-weight: bold; color: ${textColor};">${idealWeightMax}</span> kg.</span>`;
+
+        const averageWeightDiv = document.querySelector('.average-weight');
+        averageWeightDiv.innerHTML = `<span>Your ideal weight is 
+        <span style="font-weight: bold; text-decoration: underline; color: ${textColor};">${idealWeightAvg}</span> kg`;
 
         resultContainer.innerHTML = result;
         body.style.backgroundColor = backgroundColor;
     } else {
-        resultContainer.textContent = 'Please enter valid values.';
+        resultContainer.textContent = 'Please enter valid number.';
         body.style.backgroundColor = 'transparent';
     }
+
+
 });
 
 document.getElementById('reset-button').addEventListener('click', function () {
     document.getElementById('weight').value = '';
     document.getElementById('height').value = '';
+
     document.getElementById('result').textContent = '';
+    document.querySelector('.average-weight').innerHTML = '';
     document.body.style.backgroundColor = 'transparent';
 });
+
