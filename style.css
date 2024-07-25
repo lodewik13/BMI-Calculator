@@ -9,6 +9,8 @@ body {
 }
 
 .container {
+    align-content: left;
+    align-items: start;
     border-radius: 10px;
     width: 60%;
     text-align: center;
@@ -26,10 +28,15 @@ h1 {
     font-weight: 900;
 }
 
+#height::placeholder,
+#weight::placeholder {
+    font-weight: normal;
+}
+
 .form-group {
     margin-bottom: 32px;
     text-align: left;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 label {
@@ -49,6 +56,17 @@ input {
     border: 1px solid rgba(255, 255, 255, 0);
     border-bottom: 1px solid #aeaeae;
     background-color: rgba(255, 255, 255, 0);
+    outline: none;
+    font-size: 16px;
+    color: #3783F6;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+input:focus {
+    border-bottom: 1px solid blue;
+    font-weight: 600;
+    letter-spacing: 2px;
 }
 
 button {
