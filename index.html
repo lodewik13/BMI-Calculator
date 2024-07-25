@@ -14,7 +14,14 @@
             BMI CALCULATOR
         </p>
         <h1>Check your <span class="colored-h1">Ideal</span> Weight</h1>
-        <div class="average-weight"></div>
+        <div id="average-weight-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <div class="average-weight"></div>
+                <div id="result"></div>
+                <button class="try-again" id="close-btn">Try Again</button>
+            </div>
+        </div>
         <form id="bmi-form">
             <div class="form-group">
                 <label for="height">Height (cm):</label>
@@ -32,7 +39,7 @@
 
             </div>
         </form>
-        <div id="result"></div>
+
     </div>
     <div class="image-container">
         <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.3/build/spline-viewer.js"></script>

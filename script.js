@@ -1,3 +1,11 @@
+function showAverageWeightModal(idealWeightAvg, textColor) {
+    const averageWeightDiv = document.querySelector('.average-weight');
+    averageWeightDiv.innerHTML = `<span>Your ideal weight is 
+    <span style="font-weight: bold; text-decoration: underline; color: ${textColor};">${idealWeightAvg} kg</span></span>`;
+
+    document.getElementById('average-weight-modal').style.display = 'block';
+}
+
 document.getElementById('bmi-form').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -36,32 +44,47 @@ document.getElementById('bmi-form').addEventListener('submit', function (event) 
         let idealWeightMax = (24.9 * heightInMeters * heightInMeters).toFixed(2);
         let idealWeightAvg = ((parseFloat(idealWeightMin) + parseFloat(idealWeightMax)) / 2).toFixed(2);
 
-        result += `<span>The average ideal weight is 
-        <span style="font-weight: bold; text-decoration: underline; color: ${textColor};">${idealWeightAvg}</span> kg.</span>
-        <span>Your ideal weight range is between 
+        result += `<span>Your ideal weight range is between 
         <span style="font-weight: bold; color: ${textColor};">${idealWeightMin}</span> kg and 
         <span style="font-weight: bold; color: ${textColor};">${idealWeightMax}</span> kg.</span>`;
 
-        const averageWeightDiv = document.querySelector('.average-weight');
-        averageWeightDiv.innerHTML = `<span>Your ideal weight is 
-        <span style="font-weight: bold; text-decoration: underline; color: ${textColor};">${idealWeightAvg}</span> kg`;
-
         resultContainer.innerHTML = result;
         body.style.backgroundColor = backgroundColor;
+
+        showAverageWeightModal(idealWeightAvg, textColor);
     } else {
-        resultContainer.textContent = 'Please enter valid number.';
+        resultContainer.textContent = 'Please enter valid numbers.';
         body.style.backgroundColor = 'transparent';
     }
-
-
 });
+
+function closeModal() {
+    document.getElementById('average-weight-modal').style.display = 'none';
+}
 
 document.getElementById('reset-button').addEventListener('click', function () {
     document.getElementById('weight').value = '';
     document.getElementById('height').value = '';
-
     document.getElementById('result').textContent = '';
-    document.querySelector('.average-weight').innerHTML = '';
+    closeModal();
     document.body.style.backgroundColor = 'transparent';
 });
 
+document.querySelector('.close-btn').addEventListener('click', closeModal);
+
+document.getElementById('close-btn').addEventListener('click', function () {
+    closeModal();
+    document.getElementById('weight').value = '';
+    document.getElementById('height').value = '';
+    document.getElementById('result').textContent = '';
+    document.body.style.backgroundColor = 'transparent';
+});
+
+window.addEventListener('click', function (event) {
+    if (event.target == document.getElementById('average-weight-modal')) {
+        closeModal();
+    }
+});
+
+
+document.getElementById('close-icon').style.display = 'none';
