@@ -28,8 +28,8 @@ document.getElementById('bmi-form').addEventListener('submit', function (event) 
             textColor = 'red';
         } else if (bmi >= 18.5 && bmi < 24.9) {
             result += 'You have a normal weight.';
-            backgroundColor = '#EDFDE9';
-            textColor = 'green';
+            backgroundColor = '#F0F6FE';
+            textColor = '#3783F6';
         } else if (bmi >= 25 && bmi < 29.9) {
             result += 'You are overweight.';
             backgroundColor = '#FDE9E9';
@@ -85,6 +85,3 @@ window.addEventListener('click', function (event) {
         closeModal();
     }
 });
-
-
-document.getElementById('close-icon').style.display = 'none';
