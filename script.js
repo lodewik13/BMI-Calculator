@@ -16,19 +16,19 @@ document.getElementById('bmi-form').addEventListener('submit', function (event) 
 
         if (bmi < 18.5) {
             result += 'You are underweight.';
-            backgroundColor = 'red';
+            backgroundColor = '#FDE9E9';
             textColor = 'red';
         } else if (bmi >= 18.5 && bmi < 24.9) {
             result += 'You have a normal weight.';
-            backgroundColor = 'green';
+            backgroundColor = '#EDFDE9';
             textColor = 'green';
         } else if (bmi >= 25 && bmi < 29.9) {
             result += 'You are overweight.';
-            backgroundColor = 'red';
+            backgroundColor = '#FDE9E9';
             textColor = 'red';
         } else {
             result += 'You are obese.';
-            backgroundColor = 'red';
+            backgroundColor = '#FDE9E9';
             textColor = 'red';
         }
 
