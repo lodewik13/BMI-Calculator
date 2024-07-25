@@ -29,6 +29,10 @@ h1 {
     line-height: 120%;
 }
 
+.colored-h1 {
+    color: #3783F6;
+}
+
 #height::placeholder,
 #weight::placeholder {
     font-weight: normal;
